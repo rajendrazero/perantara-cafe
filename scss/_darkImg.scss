@@ -1,0 +1,50 @@
+@use "variables" as v;
+
+/* =====================================================
+   GLOBAL IMAGE DARK OVERLAY
+   Dipakai di About, Gallery dll
+===================================================== */
+
+.about-img,
+.gallery__item,
+.menuFav__item {
+    position: relative;
+    overflow: hidden;
+}
+
+/* OVERLAY */
+.about-img::after,
+.gallery__item::after,
+.menuFav__item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: v.$bg-foto;
+
+    z-index: 2;
+    pointer-events: none;
+
+    transition: opacity v.$duration-base v.$ease-smooth;
+}
+
+/* IMAGE LAYER */
+.about-img img,
+.gallery__item img,
+.menuFav__item img {
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================================================
+   DESKTOP INTERACTION
+   (hover hanya di device yang mendukung)
+===================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+    .about-img:hover::after,
+    .gallery__item:hover::after,
+    .menuFav__item:hover::after {
+        opacity: 0.25; // buka sedikit, tetap cinematic
+    }
+}

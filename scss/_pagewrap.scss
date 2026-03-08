@@ -1,0 +1,12 @@
+.pagewrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    position: relative;
+}
+
+#gallery,
+#subscribe,
+#contact {
+  min-height: 100vh;
+}

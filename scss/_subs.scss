@@ -1,0 +1,217 @@
+@use "variables" as v;
+@use "sass:color";
+
+/* =========================================================
+   SUBSCRIBE SECTION – GLASS + GOLD
+   ========================================================= */
+
+#subscribe {
+  padding: v.$space-2xl v.$space-xl;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: v.$z-content;
+}
+
+/* =========================================================
+   SUBSCRIBE BOX
+   ========================================================= */
+
+.subscribe-box {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+
+  background: v.$bg-glass;
+  backdrop-filter: blur(10px);
+  border-radius: v.$radius-lg;
+  padding: v.$space-xl;
+
+  /* gold outline lembut */
+  border: 1px solid rgba(v.$gold, 0.25);
+
+  /* depth */
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(v.$cream, 0.03);
+
+  /* subtle gold glow */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(v.$gold, 0.35),
+      transparent 40%,
+      transparent 60%,
+      rgba(v.$gold, 0.25)
+    );
+    pointer-events: none;
+    opacity: 0.35;
+  }
+
+  h2 {
+    font-family: v.$font-main;
+    font-size: v.$text-xl;
+    font-weight: v.$weight-semibold;
+    color: v.$text-main;
+    margin-bottom: v.$space-sm;
+  }
+
+  p {
+    font-size: v.$text-sm;
+    color: v.$text-muted;
+    margin-bottom: v.$space-lg;
+  }
+
+  small {
+    display: block;
+    margin-top: v.$space-md;
+    font-size: v.$text-2xs;
+    color: v.$text-fade;
+  }
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-sm;
+
+  input {
+    flex: 1;
+    padding: 1.4rem 1.6rem;
+
+    background: rgba(v.$black, 0.55);
+    border: 1px solid rgba(v.$gold, 0.25);
+    border-radius: v.$radius-md;
+
+    font-size: v.$text-sm;
+    color: v.$text-main;
+    outline: none;
+
+    transition: all v.$duration-fast v.$ease-smooth;
+
+    &::placeholder {
+      color: v.$text-fade;
+    }
+
+    &:focus {
+      border-color: v.$gold;
+      box-shadow: 0 0 0 3px rgba(v.$gold, 0.15);
+    }
+  }
+
+  button {
+    padding: 1.4rem 2.2rem;
+    border-radius: v.$radius-md;
+    border: none;
+
+    background: linear-gradient(
+      135deg,
+      color.adjust(v.$gold, $lightness: 6%),
+      v.$gold
+    );
+
+    color: v.$text-inverse;
+    font-weight: v.$weight-semibold;
+    cursor: pointer;
+
+    box-shadow: 0 10px 30px rgba(v.$gold, 0.35);
+
+    transition: all v.$duration-fast v.$ease-snappy;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(v.$gold, 0.45);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 20px rgba(v.$gold, 0.3);
+    }
+  }
+}
+
+/* =========================================================
+   RESPONSIVE SYSTEM
+   ========================================================= */
+
+/* ================= MOBILE (≤ 480px) ================= */
+
+@media (max-width: v.$bp-xs) {
+  #subscribe {
+    padding: v.$space-xl v.$space-md;
+  }
+
+  .subscribe-box {
+    padding: v.$space-lg;
+    border-radius: v.$radius-md;
+
+    h2 {
+      font-size: v.$text-lg;
+    }
+
+    p {
+      font-size: v.$text-xs;
+    }
+  }
+
+  .subscribe-form {
+    gap: v.$space-xs;
+
+    input,
+    button {
+      font-size: v.$text-xs;
+      padding: 1.2rem 1.4rem;
+    }
+  }
+}
+
+/* ================= SMALL TABLET (≤ 640px) ================= */
+
+@media (max-width: v.$bp-sm) {
+  #subscribe {
+    padding: v.$space-xl v.$space-lg;
+  }
+
+  .subscribe-box {
+    max-width: 100%;
+  }
+
+  .subscribe-form {
+    button {
+      width: 100%;
+    }
+  }
+}
+
+/* ================= TABLET (≤ 768px) ================= */
+
+@media (max-width: v.$bp-md) {
+  #subscribe {
+    padding: v.$space-2xl v.$space-lg;
+  }
+
+  .subscribe-box {
+    max-width: 480px;
+  }
+}
+
+/* ================= LARGE DESKTOP (≥ 1280px) ================= */
+
+@media (min-width: v.$bp-xl) {
+  #subscribe {
+    padding: v.$space-2xl v.$space-2xl;
+  }
+
+  .subscribe-box {
+    max-width: 560px;
+  }
+}

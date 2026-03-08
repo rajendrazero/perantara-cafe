@@ -1,0 +1,581 @@
+@use "variables" as v;
+
+/* =========================================================
+   MENU & CART LAYOUT – REFINED
+   ========================================================= */
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  gap: v.$space-lg;
+  padding: v.$space-xl;
+  max-width: v.$container-xl;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1; // penting
+
+  &::before {
+    content: "";
+    position: absolute; // ⬅️ ganti ini
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    border-radius: 100%;
+    transform: translateX(-50%) skewY(-8deg);
+    background-color: v.$gold;
+    z-index: -1;
+    animation: wave 8s ease-in-out infinite alternate;
+  }
+
+  @media (max-width: 768px) {
+      &::before {
+    content: "";
+    display: none;
+  }
+  }
+}
+
+
+@keyframes wave {
+  0% { transform: translateX(-50%) skew(0deg, -8deg); }
+  100% { transform: translateX(-30%) skew(8deg, -4deg); }
+}
+
+/* =========================================================
+   SCREEN (LEFT & RIGHT)
+   ========================================================= */
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 640px;
+  background: v.$bg-soft;
+  border-radius: v.$radius-lg;
+  box-shadow: v.$shadow-sm;
+  overflow: hidden;
+  border: 1px solid v.$border-soft;
+
+  &.-right {
+    background: v.$bg-deep;
+  }
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.card-header {
+  padding: v.$space-md v.$space-lg;
+  background: v.$bg-deep;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid v.$border-soft;
+
+  .app-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: v.$space-sm;
+
+    .logo {
+      width: 44px;
+      opacity: 0.9;
+    }
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: v.$text-lg;
+    font-weight: v.$weight-semibold;
+    font-family: v.$font-main;
+    color: v.$text-main;
+  }
+}
+
+
+/* =========================================================
+   TOOLBAR – 2 ROW (SEARCH + SORT / FILTER)
+   ========================================================= */
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "search sort"
+    "filter filter";
+  gap: v.$space-sm;
+  width: 100%;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box {
+  grid-area: search;
+
+  input {
+    width: 100%;
+    height: 36px;
+    padding: 0 v.$space-sm;
+    border-radius: v.$radius-md;
+    background: v.$bg-soft;
+    border: 1px solid v.$border-medium;
+    font-size: v.$text-sm;
+    color: v.$text-main;
+
+    &:focus {
+      outline: none;
+      border-color: v.$gold;
+    }
+  }
+}
+
+/* ================= SORT ================= */
+
+.sort-select {
+  grid-area: sort;
+  height: 36px;
+  min-width: 120px;
+  background: v.$bg-soft;
+  border: 1px solid v.$border-medium;
+  border-radius: v.$radius-md;
+  padding: 0 v.$space-sm;
+  font-size: v.$text-sm;
+}
+
+/* ================= FILTER ================= */
+
+.filter-group {
+  grid-area: filter;
+  display: flex;
+  gap: v.$space-xs;
+  overflow-x: auto;
+  padding-bottom: 4px;
+
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+}
+
+.filter-btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding: v.$space-xs v.$space-md;
+  border-radius: v.$radius-xl;
+  background: v.$bg-soft;
+  border: 1px solid v.$border-medium;
+  font-size: v.$text-sm;
+  cursor: pointer;
+
+  &.-active {
+    background: v.$gold;
+    color: v.$text-inverse;
+    border-color: v.$gold;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 520px) {
+  .toolbar {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "search"
+      "sort"
+      "filter";
+  }
+
+  .sort-select {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.card-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: v.$space-lg;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+/* =========================================================
+   ITEM CARD
+   ========================================================= */
+
+.item {
+  background: v.$bg-deep;
+  border-radius: v.$radius-lg;
+  padding: v.$space-lg;
+  margin-bottom: v.$space-lg;
+  box-shadow: v.$shadow-xs;
+  border: 1px solid v.$border-soft;
+
+  .image-area {
+    height: 220px;
+    border-radius: v.$radius-md;
+    background: v.$bg-soft;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: v.$space-md;
+    overflow: hidden;
+
+    img {
+      width: 90%;
+      transform: rotate(-18deg);
+      filter: drop-shadow(0 16px 12px rgba(0, 0, 0, 0.4));
+    }
+  }
+
+  .name {
+    font-size: v.$text-md;
+    font-weight: v.$weight-semibold;
+    margin-bottom: v.$space-xs;
+    color: v.$text-main;
+  }
+
+  .description {
+    font-size: v.$text-sm;
+    line-height: v.$line-relax;
+    color: v.$text-muted;
+    margin-bottom: v.$space-md;
+  }
+
+  .bottom-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .price {
+      font-family: v.$font-mono;
+      font-size: v.$text-sm;
+      font-weight: v.$weight-bold;
+      color: v.$text-accent;
+    }
+
+    .button {
+      height: 40px;
+      padding: 0 v.$space-lg;
+      border-radius: v.$radius-xl;
+      background: v.$gold;
+      color: v.$text-inverse;
+      font-weight: v.$weight-bold;
+      font-size: v.$text-2xs;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform v.$duration-fast v.$ease-smooth,
+                  box-shadow v.$duration-fast v.$ease-smooth;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: v.$shadow-sm;
+      }
+
+      &.-active {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+.cart-item {
+  display: flex;
+  gap: v.$space-md;
+  padding: v.$space-sm 0;
+  border-bottom: 1px solid v.$border-soft;
+
+  .cart-image {
+    width: 64px;
+    height: 64px;
+    border-radius: v.$radius-md;
+    background: v.$bg-soft;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+      width: 120%;
+      transform: rotate(-20deg);
+      filter: drop-shadow(0 12px 8px rgba(0, 0, 0, 0.35));
+    }
+  }
+
+  .right {
+    flex: 1;
+
+    .name {
+      font-size: v.$text-base;
+      font-weight: v.$weight-medium;
+      margin-bottom: v.$space-2xs;
+    }
+
+    .price {
+      font-size: v.$text-2xs;
+      font-family: v.$font-mono;
+      font-weight: v.$weight-bold;
+      color: v.$text-accent;
+      margin-bottom: v.$space-xs;
+    }
+
+    .count {
+      display: flex;
+      align-items: center;
+
+      .button {
+        width: 28px;
+        height: 28px;
+        border-radius: v.$radius-xl;
+        background: v.$bg-soft;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:hover {
+          background: v.$bg-deep;
+        }
+      }
+
+      .number {
+        width: 24px;
+        text-align: center;
+        font-family: v.$font-mono;
+        font-size: v.$text-sm;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   CART FOOTER
+   ========================================================= */
+
+.cart-footer {
+  padding: v.$space-lg;
+  border-top: 1px solid v.$border-soft;
+  background: v.$bg-soft;
+
+  textarea {
+    width: 100%;
+    height: 80px;
+    border-radius: v.$radius-md;
+    background: v.$bg-deep;
+    border: 1px solid v.$border-medium;
+    color: v.$text-main;
+    padding: v.$space-sm;
+    margin-bottom: v.$space-sm;
+  }
+
+  .total-price {
+    text-align: right;
+    font-size: v.$text-sm;
+    font-weight: v.$weight-bold;
+    color: v.$text-accent;
+    margin-bottom: v.$space-sm;
+  }
+
+  #checkout-btn {
+    width: 100%;
+    height: 48px;
+    border-radius: v.$radius-md;
+    background: v.$gold;
+    color: v.$text-inverse;
+    font-weight: v.$weight-bold;
+    font-size: v.$text-base;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background: v.$cream;
+    }
+  }
+}
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.no-content {
+  text-align: center;
+  margin-top: v.$space-xl;
+  color: v.$text-fade;
+  font-size: v.$text-sm;
+}
+
+/* =========================================================
+   RESPONSIVE LAYOUT (MOBILE)
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column; // ⬇️ jadi atas bawah
+    padding: v.$space-md;
+    gap: v.$space-md;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE – LAPTOP KECIL
+   ========================================================= */
+@media (max-width: 1200px) {
+  .wrapper {
+    padding: v.$space-lg;
+  }
+
+  .screen {
+    height: 600px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE – TABLET LANDSCAPE
+   ========================================================= */
+@media (max-width: 992px) {
+  .wrapper {
+    gap: v.$space-md;
+  }
+
+  .screen {
+    height: 560px;
+  }
+
+  .item {
+    padding: v.$space-md;
+
+    .image-area {
+      height: 200px;
+    }
+  }
+}
+
+/* =========================================================
+   RESPONSIVE – TABLET & HP BESAR
+   ========================================================= */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    padding: v.$space-md;
+    gap: v.$space-md;
+  }
+
+  .screen {
+    height: auto;
+    min-height: 520px;
+  }
+
+  .card-header {
+    padding: v.$space-sm v.$space-md;
+  }
+
+  .card-main {
+    padding: v.$space-md;
+  }
+
+  .item {
+    .image-area {
+      height: 180px;
+    }
+
+    .bottom-area {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: v.$space-xs;
+
+      .button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+
+  .cart-footer {
+    padding: v.$space-md;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE – HP
+   ========================================================= */
+@media (max-width: 576px) {
+  .toolbar {
+    gap: v.$space-xs;
+  }
+
+  .search-box input,
+  .sort-select {
+    height: 40px;
+  }
+
+  .filter-btn {
+    font-size: v.$text-2xs;
+    padding: v.$space-2xs v.$space-sm;
+  }
+
+  .item {
+    padding: v.$space-sm;
+
+    .name {
+      font-size: v.$text-sm;
+    }
+
+    .description {
+      font-size: v.$text-2xs;
+    }
+  }
+
+  .cart-item {
+    gap: v.$space-sm;
+
+    .cart-image {
+      width: 52px;
+      height: 52px;
+    }
+  }
+}
+
+/* =========================================================
+   RESPONSIVE – HP KECIL
+   ========================================================= */
+@media (max-width: 420px) {
+  .wrapper {
+    padding: v.$space-sm;
+  }
+
+  .card-header .title {
+    font-size: v.$text-base;
+  }
+
+  .item .image-area {
+    height: 150px;
+  }
+
+  .cart-footer {
+    textarea {
+      height: 64px;
+    }
+
+    #checkout-btn {
+      height: 44px;
+      font-size: v.$text-sm;
+    }
+  }
+}
+

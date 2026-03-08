@@ -1,0 +1,242 @@
+@use "sass:color";
+@use "variables" as v;
+
+/* =========================================================
+   HERO – PERANTARA
+   ========================================================= */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background: url("../assets/images/kasir.jpg") center / cover no-repeat;
+    background-color: v.$bg-main;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    /* OVERLAY GLOBAL */
+    &-overlay {
+        position: absolute;
+        inset: 0;
+        background: v.$bg-overlay;
+        z-index: v.$z-base;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        inset-inline: 0;
+        height: 160px;
+        background: linear-gradient(
+            to top,
+            rgba(v.$black, 0.85) 0%,
+            rgba(v.$black, 0.4) 45%,
+            transparent 100%
+        );
+        z-index: v.$z-content;
+        pointer-events: none;
+    }
+
+    /* =========================================================
+   GRID
+   ========================================================= */
+
+    .hero-grid {
+        position: relative;
+        z-index: v.$z-content;
+
+        max-width: v.$container-xl;
+        margin: 0 auto;
+        padding: v.$space-xl;
+
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+    }
+
+    /* =========================================================
+   HEADER (KIRI)
+   ========================================================= */
+
+    .hero-content-header {
+        position: relative;
+        z-index: v.$z-content;
+
+        display: flex;
+        flex-direction: column;
+        gap: v.$space-sm;
+
+        will-change: transform, opacity;
+
+        .intro-header {
+            font-family: v.$font-main;
+            font-size: v.$text-sm;
+            font-style: italic;
+            color: v.$text-fade;
+        }
+
+        h1 {
+            font-family: v.$font-main;
+            font-size: v.$text-3xl;
+            line-height: v.$line-tight;
+            color: v.$text-main;
+        }
+
+        /* SOCIAL */
+        .hero-header-blog-text ul {
+            display: flex;
+            gap: v.$space-md;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            a {
+                font-family: v.$font-body;
+                font-size: v.$text-xs;
+                letter-spacing: 0.14em;
+                color: v.$text-fade;
+                text-decoration: none;
+                transition: color v.$duration-base v.$ease-smooth;
+
+                &:hover {
+                    color: v.$text-accent;
+                }
+            }
+        }
+
+        /* CTA */
+        .hero-cta {
+            align-self: flex-start;
+            padding: v.$space-sm v.$space-lg;
+            border-radius: v.$radius-xl;
+
+            font-family: v.$font-body;
+            font-size: v.$text-sm;
+            font-weight: v.$weight-medium;
+
+            background: v.$gold;
+            color: v.$text-inverse;
+
+            transition:
+                background v.$duration-base v.$ease-smooth,
+                transform v.$duration-fast v.$ease-snappy;
+
+            &:hover {
+                background: color.adjust(v.$gold, $lightness: -6%);
+                transform: translateY(-2px);
+            }
+        }
+    }
+
+    /* =========================================================
+   FOTO (KANAN)
+   ========================================================= */
+
+    .hero-content-blog {
+        position: relative;
+        min-height: 520px;
+        will-change: transform, opacity;
+    }
+
+    .hero-content-blog-img {
+        position: absolute;
+        inset: 0;
+    }
+
+    /* WRAPPER FOTO */
+    .img-wrap {
+        position: absolute;
+        border-radius: v.$radius-md;
+        overflow: hidden;
+        box-shadow: v.$shadow-md;
+
+        /* OVERLAY FOTO */
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(v.$black, 0.45);
+            z-index: 1;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
+        }
+    }
+
+    /* POSISI FOTO */
+    .decor-1 {
+        width: 340px;
+        height: 420px;
+        top: 0;
+        right: 120px;
+    }
+
+    .decor-2 {
+        width: 300px;
+        height: 260px;
+        bottom: 30%;
+        right: 0;
+    }
+
+    /* =========================================================
+   TABLET
+   ========================================================= */
+
+    @media (max-width: v.$bp-lg) {
+        .hero-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .hero-content-blog {
+            margin-top: v.$space-xl;
+        }
+    }
+
+    /* =========================================================
+   MOBILE
+   ========================================================= */
+
+    @media (max-width: v.$bp-md) {
+        .hero-grid {
+            display: flex;
+            flex-direction: column;
+            padding: v.$space-sm;
+            margin-top: v.$space-sm;
+        }
+
+        .hero-content-blog {
+            order: -1;
+            min-height: 160px;
+        }
+
+        .hero-content-blog-img {
+            position: relative;
+        }
+
+        .decor-1 {
+            width: 120px;
+            height: 120px;
+            left: 20%;
+            top: 10%;
+            transform: translateX(-50%);
+        }
+
+        .decor-2 {
+            width: 100px;
+            height: 80px;
+            left: -40%;
+            top: 30%;
+        }
+
+        .hero-content-header h1 {
+            font-size: v.$text-xl;
+        }
+    }
+}

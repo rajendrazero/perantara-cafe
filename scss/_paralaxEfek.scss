@@ -1,0 +1,97 @@
+@use "variables" as v;
+
+/* =========================================
+   GLOBAL PARALLAX SYSTEM (FINAL CLEAN)
+========================================= */
+
+/* -----------------------------------------
+   BASE PARALLAX SECTION
+----------------------------------------- */
+.section-parallax {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Flag parallax (tidak wajib tapi rapi) */
+[data-parallax~="parallax"] {
+    position: relative;
+    overflow: hidden;
+}
+
+/* -----------------------------------------
+   PIN SECTION (DITAHAN)
+----------------------------------------- */
+[data-parallax~="pin"] {
+    position: relative;
+    z-index: 1;
+}
+
+/* -----------------------------------------
+   REVEAL SECTION (MENIMPA)
+----------------------------------------- */
+[data-parallax~="reveal"] {
+    position: relative;
+    z-index: 3;
+
+    /* KUNCI efek menimpa */
+    margin-top: 100vh;
+}
+
+/* -----------------------------------------
+   PARALLAX LAYERS (SEMUA)
+----------------------------------------- */
+[data-parallax~="bg"],
+[data-parallax~="content"],
+[data-parallax~="float"] {
+    will-change: transform;
+}
+
+/* -----------------------------------------
+   BACKGROUND LAYER (PALING BELAKANG)
+----------------------------------------- */
+[data-parallax~="bg"] {
+    position: absolute;
+    inset: -30% 0; // ekstra ruang untuk movement
+    z-index: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* -----------------------------------------
+   CONTENT LAYER (TEKS / GRID)
+----------------------------------------- */
+[data-parallax~="content"] {
+    position: relative;
+    z-index: v.$z-content;
+}
+
+/* -----------------------------------------
+   FLOATING ELEMENT (IMAGE / DEKORASI)
+----------------------------------------- */
+[data-parallax~="float"] {
+    position: relative;
+    z-index: v.$z-content + 2;
+}
+
+/* -----------------------------------------
+   DISSOLVE SUPPORT (VISUAL HINT)
+----------------------------------------- */
+[data-parallax~="dissolve"] {
+    transform-origin: center top;
+}
+
+/* -----------------------------------------
+   MOBILE SAFETY
+----------------------------------------- */
+@media (max-width: v.$bp-md) {
+    [data-parallax~="reveal"] {
+        margin-top: 0; // matikan overlap di mobile
+    }
+
+    [data-parallax] {
+        transform: none !important;
+    }
+}

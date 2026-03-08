@@ -1,0 +1,140 @@
+@use "variables" as v;
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+#footer {
+  background: linear-gradient(
+    to bottom,
+    v.$bg-soft,
+    v.$bg-deep
+  );
+  padding: v.$space-2xl v.$space-xl v.$space-lg;
+  position: relative;
+  overflow: hidden;
+}
+
+/* gold glow ambient */
+#footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 20% 0%,
+    rgba(v.$gold, 0.15),
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.footer-inner {
+  max-width: v.$container-xl;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: v.$space-xl;
+}
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.footer-brand h3 {
+  font-family: v.$font-main;
+  font-size: v.$text-lg;
+  color: v.$gold;
+  margin-bottom: v.$space-sm;
+}
+
+.footer-brand p {
+  color: v.$text-muted;
+  font-size: v.$text-sm;
+  line-height: v.$line-relax;
+  max-width: 320px;
+}
+
+/* =========================================================
+   COLUMNS
+   ========================================================= */
+
+.footer-col h4 {
+  font-size: v.$text-sm;
+  letter-spacing: 1px;
+  color: v.$text-main;
+  margin-bottom: v.$space-md;
+  position: relative;
+}
+
+/* gold underline */
+.footer-col h4::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: v.$gold;
+  margin-top: v.$space-xs;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col li {
+  margin-bottom: v.$space-sm;
+}
+
+.footer-col a {
+  color: v.$text-muted;
+  font-size: v.$text-sm;
+  text-decoration: none;
+  transition: all v.$duration-fast v.$ease-smooth;
+
+  &:hover {
+    color: v.$gold;
+    transform: translateX(4px);
+  }
+}
+
+/* =========================================================
+   SOCIAL
+   ========================================================= */
+
+.social a {
+  display: inline-block;
+}
+
+/* =========================================================
+   BOTTOM
+   ========================================================= */
+
+.footer-bottom {
+  margin-top: v.$space-xl;
+  padding-top: v.$space-md;
+  text-align: center;
+  font-size: v.$text-2xs;
+  color: v.$text-fade;
+  border-top: 1px solid v.$border-soft;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: v.$bp-lg) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: v.$bp-sm) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: v.$space-lg;
+  }
+}

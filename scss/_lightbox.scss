@@ -1,0 +1,94 @@
+@use "variables" as v;
+
+/* =====================================================
+   CUSTOM LIGHTBOX (NON FULLSCREEN)
+===================================================== */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+
+    .lightbox-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(v.$black, 0.75);
+    }
+
+    .lightbox-panel {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+
+        width: min(90vw, 900px);
+        max-height: 70vh;
+
+        background: v.$bg-main;
+        border-radius: v.$radius-md;
+        overflow: hidden;
+
+        box-shadow: v.$shadow-lg;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lightbox-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    /* CLOSE */
+    .lightbox-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: none;
+        border: none;
+        color: v.$text-main;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 5;
+    }
+
+    /* NAV */
+    .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(v.$black, 0.6);
+        border: none;
+        color: v.$text-main;
+        font-size: 18px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .lightbox-nav.prev {
+        left: 10px;
+    }
+
+    .lightbox-nav.next {
+        right: 10px;
+    }
+
+    /* MOBILE */
+    @media (max-width: v.$bp-md) {
+        .lightbox-panel {
+            width: 92vw;
+            max-height: 65vh;
+        }
+
+        .lightbox-nav {
+            width: 34px;
+            height: 34px;
+        }
+    }
+}

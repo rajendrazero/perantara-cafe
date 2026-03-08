@@ -1,0 +1,217 @@
+@use "variables" as v;
+
+/* =========================================================
+   OWNER SECTION
+   ========================================================= */
+
+.owner {
+  position: relative;
+  padding: v.$space-2xl v.$space-xl;
+  background: v.$bg-deep;
+  overflow: hidden;
+}
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.owner-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* GOLD CLOUDS */
+
+.gold-cloud {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(
+    circle,
+    rgba(v.$gold, 0.35),
+    transparent 65%
+  );
+  filter: blur(120px);
+  opacity: 0.7;
+}
+
+.cloud-1 {
+  top: -20%;
+  left: -10%;
+}
+
+.cloud-2 {
+  bottom: -25%;
+  right: -15%;
+}
+
+/* WAVE SVG */
+
+.wave-svg {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 140%;
+  height: 260px;
+  opacity: 0.6;
+}
+
+/* =========================================================
+   CONTENT GRID
+   ========================================================= */
+
+.owner-inner {
+  position: relative;
+  z-index: 2;
+  max-width: v.$container-lg;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: v.$space-xl;
+  perspective: 1600px;
+}
+
+/* =========================================================
+   OWNER CARD (3D)
+   ========================================================= */
+
+.owner-card {
+  background: v.$bg-glass;
+  backdrop-filter: blur(18px);
+  border-radius: v.$radius-lg;
+  padding: v.$space-lg;
+  text-align: center;
+  border: 1px solid v.$border-soft;
+  box-shadow: v.$shadow-lg;
+  position: relative;
+  overflow: hidden;
+
+  transform-style: preserve-3d;
+  transition: transform 0.45s v.$ease-smooth;
+
+  &:hover {
+    transform: rotateY(8deg) rotateX(6deg) translateY(-14px);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at top,
+      rgba(v.$gold, 0.35),
+      transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.45s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   PHOTO
+   ========================================================= */
+
+.owner-photo {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto v.$space-md;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translateZ(40px);
+  border: 3px solid rgba(v.$gold, 0.6);
+  box-shadow: 0 20px 40px rgba(0,0,0,.5);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* =========================================================
+   INFO
+   ========================================================= */
+
+.owner-info {
+  transform: translateZ(30px);
+
+  h3 {
+    font-family: v.$font-main;
+    font-size: v.$text-lg;
+    color: v.$gold;
+  }
+
+  span {
+    display: block;
+    font-size: v.$text-2xs;
+    letter-spacing: 1px;
+    color: v.$text-muted;
+    margin-bottom: v.$space-sm;
+  }
+
+  p {
+    font-size: v.$text-2xs;
+    line-height: v.$line-relax;
+    color: v.$text-muted;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE Owner
+   ========================================================= */
+
+@media (max-width: v.$bp-lg) {
+  .owner {
+    padding: v.$space-xl v.$space-lg;
+  }
+
+  .owner-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: v.$space-lg;
+  }
+
+  .owner-card {
+    padding: v.$space-md;
+  }
+
+  .owner-photo {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+
+@media (max-width: v.$bp-md) {
+  .owner {
+    padding: v.$space-lg v.$space-md;
+  }
+
+  .owner-inner {
+    grid-template-columns: 1fr;
+    gap: v.$space-lg;
+  }
+
+  .owner-card {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+
+    transform: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .owner-photo {
+    width: 140px;
+    height: 140px;
+  }
+}
+

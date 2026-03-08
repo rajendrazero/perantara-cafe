@@ -1,0 +1,168 @@
+@use "sass:color";
+
+/* =========================================================
+   PERANTARA – DESIGN VARIABLES (SCSS)
+   =========================================================
+   File ini adalah pusat kendali desain website.
+   Semua styling WAJIB ambil dari sini.
+   Jangan bikin variabel baru di file lain
+   kecuali memang sangat darurat.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   WARNA DASAR (IDENTITAS BRAND)
+   --------------------------------------------------------- */
+
+$black: #0e0e0e; // hitam espresso – background utama
+$brown: #2b1e16; // coklat kopi – nuansa hangat & dalam
+$cream: #f5efe6; // susu / foam – warna teks utama
+$gold: #c9a24d; // emas kopi – aksen premium (hemat pemakaian)
+
+/* ---------------------------------------------------------
+   BACKGROUND SYSTEM
+   ---------------------------------------------------------
+   Semua warna latar HARUS lewat sini
+   --------------------------------------------------------- */
+
+$bg-main: $black; // body, hero, footer
+$bg-soft: color.adjust($black, $lightness: 2%); // section biasa
+$bg-deep: color.adjust($black, $lightness: -4%); // section penekanan
+$bg-overlay: rgba($black, 0.8); // overlay image / hero
+$bg-glass: rgba($black, 0.35); // glassmorphism
+$bg-foto: rgba($black, 0.7); // foto
+
+/* ---------------------------------------------------------
+   TEXT COLOR SYSTEM
+   --------------------------------------------------------- */
+
+$text-main: $cream; // teks utama
+$text-muted: rgba($cream, 0.65); // deskripsi / helper text
+$text-fade: rgba($cream, 0.45); // placeholder / hint
+$text-inverse: $black; // teks di background terang
+$text-accent: $gold; // teks aksen (harga, highlight)
+
+/* ---------------------------------------------------------
+   BORDER & DIVIDER
+   --------------------------------------------------------- */
+
+$border-soft: rgba($cream, 0.08);
+$border-medium: rgba($cream, 0.14);
+$border-strong: rgba($cream, 0.22);
+
+/* ---------------------------------------------------------
+   FONT SYSTEM
+   --------------------------------------------------------- */
+
+$font-main: "Playfair Display", serif; // judul, hero, quote
+$font-body: "Inter", sans-serif; // body text, UI
+$font-mono: Consolas, monospace; // angka, code, debug
+
+/* ---------------------------------------------------------
+   FONT WEIGHT
+   --------------------------------------------------------- */
+
+$weight-light: 300;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+/* ---------------------------------------------------------
+   TYPE SCALE (UKURAN TEKS)
+   --------------------------------------------------------- */
+
+$text-2xs: 1.1rem;
+$text-xs: 1.2rem;
+$text-sm: 1.4rem;
+$text-base: 1.6rem; // default body
+$text-md: 1.8rem;
+$text-lg: 2.4rem;
+$text-xl: 3.2rem;
+$text-2xl: 4.2rem;
+$text-3xl: 5.6rem; // hero title
+$text-4xl: 7.2rem; // big statement (jarang dipakai)
+
+/* ---------------------------------------------------------
+   LINE HEIGHT
+   --------------------------------------------------------- */
+
+$line-tight: 1.1;
+$line-normal: 1.5;
+$line-relax: 1.8;
+
+/* ---------------------------------------------------------
+   SPACING SYSTEM
+   --------------------------------------------------------- */
+
+$space-2xs: 0.2rem;
+$space-xs: 0.4rem;
+$space-sm: 0.8rem;
+$space-md: 1.6rem;
+$space-lg: 3.2rem;
+$space-xl: 6.4rem;
+$space-2xl: 9.6rem;
+
+/* ---------------------------------------------------------
+   CONTAINER WIDTH
+   --------------------------------------------------------- */
+
+$container-sm: 720px;
+$container-md: 1024px;
+$container-lg: 1280px;
+$container-xl: 1440px;
+
+/* ---------------------------------------------------------
+   RADIUS (SUDUT)
+   --------------------------------------------------------- */
+
+$radius-xs: 4px;
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-xl: 999px; // pill / button bulat
+
+/* ---------------------------------------------------------
+   SHADOW (ELEVATION)
+   --------------------------------------------------------- */
+
+$shadow-xs: 0 2px 6px rgba(0, 0, 0, 0.2);
+$shadow-sm: 0 6px 16px rgba(0, 0, 0, 0.25);
+$shadow-md: 0 12px 32px rgba(0, 0, 0, 0.35);
+$shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.45);
+
+/* ---------------------------------------------------------
+   TRANSITION & EASING
+   --------------------------------------------------------- */
+
+$duration-fast: 0.2s;
+$duration-base: 0.4s;
+$duration-slow: 0.8s;
+
+$ease-linear: linear;
+$ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+$ease-in: cubic-bezier(0.42, 0, 1, 1);
+$ease-out: cubic-bezier(0, 0, 0.58, 1);
+$ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+$ease-snappy: cubic-bezier(0.28, 0.12, 0.22, 1);
+
+/* ---------------------------------------------------------
+   Z-INDEX SYSTEM
+   --------------------------------------------------------- */
+
+$z-base: 1;
+$z-content: 10;
+$z-navbar: 100;
+$z-dropdown: 200;
+$z-modal: 500;
+$z-tooltip: 800;
+$z-loader: 9999;
+
+/* ---------------------------------------------------------
+   BREAKPOINTS
+   --------------------------------------------------------- */
+
+$bp-xs: 480px;
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;

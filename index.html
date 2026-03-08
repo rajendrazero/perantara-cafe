@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <!-- BASIC -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- TITLE (PENTING SEO) -->
+  <title>Perantara Coffee Medan | Premium Coffee Experience</title>
+
+  <!-- META DESCRIPTION -->
+  <meta
+    name="description"
+    content="Perantara Coffee Medan menyajikan pengalaman kopi premium, espresso terbaik, manual brew, dan ruang nyaman untuk jeda dan cerita."
+  />
+
+  <!-- KEYWORDS (OPSIONAL, tapi aman) -->
+  <meta
+    name="keywords"
+    content="Perantara Coffee, Coffee Shop Medan, Kopi Medan, Specialty Coffee, Cafe Medan"
+  />
+
+  <!-- AUTHOR -->
+  <meta name="author" content="Perantara Coffee" />
+
+  <!-- ROBOTS -->
+  <meta name="robots" content="index, follow" />
+
+  <!-- OPEN GRAPH (SOSIAL MEDIA) -->
+  <meta property="og:title" content="Perantara Coffee Medan | Premium Coffee Experience" />
+  <meta
+    property="og:description"
+    content="Kopi, cerita, dan ruang untuk jeda. Nikmati pengalaman kopi premium di Perantara Coffee Medan."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://perantaracoffee.com" />
+  <meta property="og:image" content="assets/images/logo-cafe.png" />
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Perantara Coffee Medan" />
+  <meta
+    name="twitter:description"
+    content="Premium Coffee Experience di Medan."
+  />
+  <meta name="twitter:image" content="assets/images/logo-cafe.png" />
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="assets/images/logo-cafe.png" />
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/images/logo-cafe.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo-cafe.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo-cafe.png" />
+
+  <!-- FONT AWESOME -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- SWIPER -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+
+    <body>
+        <!-- LOADER -->
+        <div id="loader">
+            <div class="loader-wrap">
+                <!-- ORBIT -->
+                <div class="coffee-orbit">
+                    <span class="bean"></span>
+                    <span class="bean"></span>
+                    <span class="bean"></span>
+                    <span class="bean"></span>
+                    <span class="bean"></span>
+                    <span class="bean"></span>
+                </div>
+
+                <!-- LOGO -->
+                <div class="loader-logo">
+                    <img
+                        src="assets/images/logo-cafe.png"
+                        alt="Perantara Coffee"
+                    />
+                </div>
+
+                <!-- DOT LOADING -->
+                <div class="loader-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- TEXT -->
+                <div class="loader-text">Perantara</div>
+            </div>
+        </div>
+
+        <div id="page" class="pagewrap">
+            <!-- NAVBAR -->
+            <header class="navbar">
+                <div class="container">
+                    <div class="logo">
+                        <span class="logo-text">Perantara</span>
+                        <span class="logo-icon">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </span>
+                    </div>
+
+                    <nav class="nav-menu">
+                        <a href="#" data-icon="fa-home">
+                            Home <span class="icon fa-solid fa-home"></span>
+                        </a>
+                        <a href="#about" data-icon="fa-mug-hot">
+                            About <span class="icon fa-solid fa-mug-hot"></span>
+                        </a>
+                        <a href="#menu" data-icon="fa-utensils">
+                            Menu <span class="icon fa-solid fa-utensils"></span>
+                        </a>
+                        <a href="#owner" data-icon="fa-user-tie">
+                            Owner
+                            <span class="icon fa-solid fa-user-tie"></span>
+                        </a>
+                        <a href="#alamat" data-icon="fa-location-dot">
+                            Alamat
+                            <span class="icon fa-solid fa-location-dot"></span>
+                        </a>
+                        <a href="#gallery" data-icon="fa-camera-retro">
+                            Gallery
+                            <span class="icon fa-solid fa-camera-retro"></span>
+                        </a>
+                        <a href="#subscribe" data-icon="fa-envelope">
+                            Subscribe
+                            <span class="icon fa-solid fa-envelope"></span>
+                        </a>
+                    </nav>
+
+                    <button class="nav-toggle" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- HERO -->
+            <section
+                id="home"
+                class="hero section-parallax"
+                data-parallax="pin parallax"
+            >
+                <div class="hero-overlay"></div>
+
+                <div class="hero-grid">
+                    <!-- TEKS -->
+                    <div class="hero-content-header">
+                        <div class="intro-header">Welcome to</div>
+
+                        <h1>
+                            Perantara <br />
+                            Caffe
+                        </h1>
+
+                        <div class="hero-header-blog-text">
+                            <ul>
+                                <li><a href="#0">FB</a></li>
+                                <li><a href="#0">IG</a></li>
+                                <li><a href="#0">TL</a></li>
+                                <li><a href="#0">X</a></li>
+                            </ul>
+                        </div>
+
+                        <a href="#menu" class="hero-cta">Explore Menu</a>
+                    </div>
+
+                    <!-- FOTO -->
+                    <div class="hero-content-blog">
+                        <figure class="hero-content-blog-img">
+                            <div class="img-wrap decor-1">
+                                <img
+                                    src="assets/images/intro-pic-primary.jpg"
+                                    alt=""
+                                />
+                            </div>
+
+                            <div class="img-wrap decor-2">
+                                <img src="assets/images/barista.jpg" alt="" />
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="hero-shadow"></div>
+            </section>
+
+            <section
+                class="float section-parallax"
+                data-parallax="reveal parallax"
+            ></section>
+
+            <!-- ================= ABOUT ================= -->
+            <section id="about" class="about section-parallax">
+                <div class="about-container" data-parallax="content">
+                    <div class="about-images" data-parallax="content">
+                        <div class="about-img img-1 fade-up" data-stagger="0.2">
+                            <img src="assets/images/logo-cafe.jpg" alt="Perantara Cafe" />
+                        </div>
+
+                        <div class="about-img img-2 fade-up" data-stagger="0.2">
+                            <img src="assets/images/about2.jpg" alt="Coffee Process" />
+                        </div>
+
+                        <div class="about-img img-3 fade-up" data-stagger="0.2">
+                            <img src="assets/images/about3.jpg" alt="Cafe Interior" />
+                        </div>
+                    </div>
+
+                    <div class="about-content">
+                        <h2 class="text-slide-up-scale" data-stagger="0.08">About Perantara</h2>
+
+                        <p class="fade-left" data-duration="1.5">
+                            Perantara lahir dari keyakinan bahwa secangkir kopi bukan sekadar minuman,
+                            melainkan ruang pertemuan ide, rasa, dan manusia.
+                        </p>
+
+                        <p class="fade-left" data-duration="1.5">
+                            Sejak awal berdiri, kami meracik kopi dengan pendekatan artisan, menghormati
+                            proses, petani, dan setiap cerita di balik biji kopi.
+                        </p>
+
+                        <div class="about-social">
+                            <a href="#" class="fade-up" data-stagger="0.15"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="fade-up" data-stagger="0.15"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#" class="fade-up" data-stagger="0.15"><i class="fa-brands fa-facebook-f"></i></a>
+                        </div>
+
+                        <div class="about-timeline">
+                            <span class="since fade-up">Since</span>
+                            <span class="year fade-up">2018</span>
+                            <span class="divider fade-up"></span>
+                            <span class="counter fade-up" data-target="#yearCounter" data-start="0" data-end="2018" data-duration="3">
+                                <strong id="yearCounter">0</strong> years journey
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= MENU ================= -->
+            <section id="menu" class="menu">
+                <!-- GALLERY -->
+                <div class="gallery-wrap">
+                    <div
+                        class="gallery gallery--menu gallery--switch"
+                        id="gallery-8"
+                    >
+                        <div class="gallery__item">
+                            <img src="assets/images/menu1.jpg" alt="" />
+                        </div>
+                        <div class="gallery__item">
+                            <img src="assets/images/menu6.jpg" alt="" />
+                        </div>
+                        <div class="gallery__item">
+                            <img src="assets/images/menu3.jpg" alt="" />
+                        </div>
+                        <div class="gallery__item">
+                            <img src="assets/images/menu4.jpg" alt="" />
+                        </div>
+                        <div class="gallery__item">
+                            <img src="assets/images/menu5.jpg" alt="" />
+                        </div>
+                        <div class="gallery__item">
+                            <img src="assets/images/menu2.jpg" alt="" />
+                        </div>
+                        <div class="gallery__item">
+                            <img src="assets/images/menu7.jpg" alt="" />
+                        </div>
+                        <div class="gallery__item">
+                            <img src="assets/images/menu8.jpg" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DESCRIPTION -->
+                <section class="menuFav-desc">
+
+                    <!-- Heading dengan efek teks halus -->
+                    <h2 class="text-fade-up" data-stagger="0.08">
+                        Americano <br />
+                        <span class="text-fade-up" data-stagger="0.1">is a favorite drink</span>
+                    </h2>
+
+                    <!-- Paragraf dengan efek slide dan fade halus -->
+                    <p class="fade-left" data-duration="1.5">
+                        Di Perantara Caffe, Americano bukan sekadar kopi hitam—ia adalah titik temu antara kesederhanaan dan karakter. Diracik dari biji kopi pilihan dan diekstraksi dengan presisi, setiap cangkir Americano menyajikan rasa yang jujur, bersih, dan elegan, mencerminkan filosofi Perantara: menghadirkan kopi apa adanya, tanpa distraksi.
+                    </p>
+
+                    <p class="fade-right" data-duration="1.5">
+                        Favorit banyak pengunjung, Americano dipilih karena kemampuannya menonjolkan identitas asli biji kopi. Dengan body yang seimbang, acidity yang halus, dan aroma yang tenang namun berlapis, minuman ini menjadi pilihan bagi mereka yang ingin menikmati kopi secara perlahan—bukan terburu-buru.
+                    </p>
+
+                    <p class="fade-left" data-duration="1.5">
+                        Dari pagi yang hening hingga sore yang penuh percakapan, Americano di Perantara Caffe selalu menemukan momennya. Ia tidak berusaha mencuri perhatian, namun justru itulah yang membuatnya diingat—sebuah menu favorit bagi mereka yang memahami bahwa kualitas terbaik sering kali hadir dalam bentuk paling sederhana.
+                    </p>
+                    
+                </section>
+
+
+                <!-- MENU LIST -->
+                <section class="wrapper">
+                    <!-- Left -->
+                    <div class="screen -left">
+                        <div class="card-header">
+                            <div class="app-bar">
+                                <div class="title">Menu</div>
+                            </div>
+                            <div class="title">
+                                <div class="toolbar">
+                                    <div class="search-box">
+                                        <input type="text" id="search-input" placeholder="Cari menu..." />
+                                    </div>
+
+                                    <select id="sort-select" class="sort-select">
+                                        <option value="">Sort</option>
+                                        <option value="name">Nama</option>
+                                        <option value="price">Harga</option>
+                                        <option value="type">Kategori</option>
+                                    </select>
+
+                                    <div class="filter-group">
+                                        <button class="filter-btn -active" data-type="all">All</button>
+                                        <button class="filter-btn" data-type="Makanan">Makanan</button>
+                                        <button class="filter-btn" data-type="Minuman">Minuman</button>
+                                        <button class="filter-btn" data-type="Snack">Snack</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-main">
+                            <div class="shop-items" id="shop-items"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="screen -right" id="cart-screen">
+                        <div class="card-header">
+                            <div class="app-bar">
+                                <div class="title">Your Cart</div>
+                            </div>
+                        </div>
+                        <div class="card-main">
+                             <div class="no-content" id="empty-cart">Your cart is empty.</div>
+                            <div class="cart-items" id="cart-items"></div>
+                        </div>
+                        <div class="cart-footer">
+                            <div class="cart-note">
+                            <textarea id="cart-note" rows="3" placeholder="Catatan untuk restoran..."></textarea>
+                            </div>
+                            <div class="total-price" id="total-price"></div>
+                            <button id="checkout-btn">Pesan via WhatsApp</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="menu-img swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                    <img src="assets/images/daftarMenu1.png" />
+                    </div>
+                    <div class="swiper-slide">
+                    <img src="assets/images/daftarMenu2.png" />
+                    </div>
+                </div>
+
+                <!-- NAV -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- DOTS -->
+                <div class="swiper-pagination"></div>
+                </section>
+            </section>
+
+            <!-- ================= GALLERY ================= -->
+            <section id="gallery" class="section-parallax" data-parallax=" parallax" >
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                    <img src="assets/images/about1.jpg" />
+                    </div>
+                    <div class="gallery-item">
+                    <img src="assets/images/about2.jpg" />
+                    </div>
+                    <div class="gallery-item">
+                    <img src="assets/images/about3.jpg" />
+                    </div>
+                    <div class="gallery-item">
+                    <img src="assets/images/about4.jpg" />
+                    </div>
+                    <div class="gallery-item">
+                    <img src="assets/images/barista.jpg" />
+                    </div>
+                    <div class="gallery-item">
+                    <img src="assets/images/cafe.jpg" />
+                    </div>
+                    <div class="gallery-item">
+                    <img src="assets/images/open.jpg" />
+                    </div>
+                    <div class="gallery-item">
+                    <img src="assets/images/kasir.jpg" />
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= Owner ================= -->
+             <section id="owner" class="owner">
+
+                <!-- BACKGROUND LAYERS -->
+                <div class="owner-bg">
+                    <div class="gold-cloud cloud-1"></div>
+                    <div class="gold-cloud cloud-2"></div>
+
+                    <svg class="wave-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path
+                        d="M0,192 C240,128 480,256 720,224 960,192 1200,96 1440,128"
+                        fill="none"
+                        stroke="rgba(201,162,77,0.35)"
+                        stroke-width="2"
+                    />
+                    <path
+                        d="M0,224 C240,160 480,288 720,256 960,224 1200,128 1440,160"
+                        fill="none"
+                        stroke="rgba(201,162,77,0.2)"
+                        stroke-width="1.5"
+                    />
+                    </svg>
+                </div>
+
+                <div class="owner-inner">
+
+                    <div class="owner-card">
+                    <div class="owner-photo">
+                        <img src="assets/images/owner1.jpg" alt="Owner">
+                    </div>
+                    <div class="owner-info">
+                        <h3>Ahmad Perantara</h3>
+                        <span>Founder & Coffee Curator</span>
+                        <p>
+                        Meracik kopi bukan sekadar rasa,
+                        tapi pengalaman, cerita, dan jiwa.
+                        </p>
+                    </div>
+                    </div>
+
+                    <div class="owner-card">
+                    <div class="owner-photo">
+                        <img src="assets/images/owner2.jpg" alt="Owner">
+                    </div>
+                    <div class="owner-info">
+                        <h3>Ahmad Perdana</h3>
+                        <span>Co-Founder</span>
+                        <p>
+                        Kopi adalah seni yang hidup
+                        di setiap detail dan aroma.
+                        </p>
+                    </div>
+                    </div>
+
+                    <div class="owner-card">
+                    <div class="owner-photo">
+                        <img src="assets/images/owner3.jpg" alt="Owner">
+                    </div>
+                    <div class="owner-info">
+                        <h3>Ahmad Santoso</h3>
+                        <span>Roast Specialist</span>
+                        <p>
+                        Setiap biji punya cerita,
+                        tugas kami menjaganya.
+                        </p>
+                    </div>
+                    </div>
+
+                </div>
+                </section>
+
+            <!-- ================= ALAMAT ================= -->
+            <section id="alamat" class="alamat">
+                <div class="alamat-map">
+                    <iframe
+                    src="https://www.google.com/maps?q=Perantara+Coffee&output=embed"
+                    loading="lazy">
+                    </iframe>
+                    <div class="map-overlay"></div>
+                </div>
+
+                <div class="alamat-info">
+                    <h2>Perantara Coffee</h2>
+                    <ul>
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Jl. Contoh No. 123, Medan</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-clock"></i>
+                        <span>08.00 – 22.00 WIB</span>
+                    </li>
+                    </ul>
+
+                    <a
+                    class="alamat-btn"
+                    href="https://maps.google.com/?q=Perantara+Coffee"
+                    target="_blank">
+                    <i class="fa-solid fa-diamond-turn-right"></i>
+                    Navigasi ke Lokasi
+                    </a>
+                </div>
+            </section>
+
+            <!-- ================= SUBSCRIBE ================= -->
+            <section id="subscribe">
+            <div class="subscribe-box">
+
+                <h2>Dapatkan Update Terbaru</h2>
+                <p>
+                Masukkan email kamu untuk mendapatkan update, promo,
+                dan informasi terbaru dari kami.
+                </p>
+
+                <form
+                class="subscribe-form"
+                method="POST"
+                action="https://530be317.sibforms.com/serve/MUIFAKTrszSN7h_B-ZijThQZspifpavADGrOubXVqhDcHlcIziMh3sbAnvc_pBAWTNrC5JMy1DKqJ8QbU0e68CcwA8qvwBmJCxE5zwkIc-o7ry9lK2oyqOSZOa_bDEw0y1EtiQ9hAcaZuPDyTtSTMqMXjcscWvS7MMmZKfPSXJJ2Ao4n4lcMHvceIUPZa055NW6BlOemUXX_0LTMdQ=="
+                >
+                <input
+                    type="email"
+                    name="EMAIL"
+                    placeholder="Email kamu"
+                    required
+                />
+
+                <button type="submit">
+                    Subscribe
+                </button>
+
+                <!-- WAJIB (anti bot) -->
+                <input type="text" name="email_address_check" value="" style="display:none">
+                <input type="hidden" name="locale" value="en">
+                </form>
+
+                <small>Kami tidak akan mengirim spam ✨</small>
+
+            </div>
+            </section>
+
+            <!-- ================= FOOTER ================= -->
+            <section id="footer">
+                <div class="footer-inner">
+
+                    <!-- BRAND -->
+                    <div class="footer-brand">
+                    <h3>Perantara</h3>
+                    <p>
+                        Kopi, cerita, dan ruang untuk jeda.
+                        Dibuat dengan rasa dan ketulusan.
+                    </p>
+                    </div>
+
+                    <!-- MENU -->
+                    <div class="footer-col">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#menu">Espresso</a></li>
+                        <li><a href="#menu">Latte</a></li>
+                        <li><a href="#menu">Signature</a></li>
+                        <li><a href="#menu">Manual Brew</a></li>
+                    </ul>
+                    </div>
+
+                    <!-- COMPANY -->
+                    <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#owner">Owner</a></li>
+                        <li><a href="#menu">Alamat</a></li>
+                    </ul>
+                    </div>
+
+                    <!-- SOCIAL -->
+                    <div class="footer-col">
+                    <h4>Ikuti Kami</h4>
+                    <ul class="social">
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                    </div>
+
+                </div>
+
+                <div class="footer-bottom">
+                    © 2026 Perantara. Brewed with soul 
+                    <span class="logo-icon">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </span>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ================= LIGHTBOX ================= -->
+        <div class="lightbox" id="lightbox">
+            <div class="lightbox-backdrop"></div>
+            <div class="lightbox-panel">
+                <button class="lightbox-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <button class="lightbox-nav prev">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <img class="lightbox-image" />
+                <button class="lightbox-nav next">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- JS -->
+
+        <script src="js/loader.js"></script>
+        <script src="js/paralaxEfek.js"></script>
+        <script src="js/animation.js"></script>
+        <script src="js/carausel.js"></script>
+        
+        <script src="js/navbar.js"></script>
+        <script src="js/hero.js"></script>
+        <script src="js/about.js"></script>
+        <script src="js/menuFav.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/gallery.js"></script>
+        <script src="js/owner.js"></script>
+        <script src="js/alamat.js"></script>
+        <script src="js/subs.js"></script>
+        <script src="js/footer.js"></script>
+    </body>
+</html>
